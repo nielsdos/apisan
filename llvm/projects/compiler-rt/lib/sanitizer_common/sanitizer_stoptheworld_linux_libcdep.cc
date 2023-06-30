@@ -12,7 +12,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-
 #include "sanitizer_platform.h"
 #if SANITIZER_LINUX && defined(__x86_64__)
 
@@ -233,7 +232,7 @@ static int TracerThread(void* argument) {
   ThreadSuspender thread_suspender(internal_getppid());
   // Global pointer for the signal handler.
   thread_suspender_instance = &thread_suspender;
-
+#if 0
   // Alternate stack for signal handling.
   InternalScopedBuffer<char> handler_stack_memory(kHandlerStackSize);
   struct sigaltstack handler_stack;
@@ -269,6 +268,8 @@ static int TracerThread(void* argument) {
   handler_stack.ss_flags = SS_DISABLE;
   internal_sigaltstack(&handler_stack, NULL);
   return exit_code;
+#endif
+  return 0;
 }
 
 class ScopedStackSpaceWithGuard {

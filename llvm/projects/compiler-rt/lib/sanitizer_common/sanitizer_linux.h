@@ -12,7 +12,6 @@
 //===----------------------------------------------------------------------===//
 #ifndef SANITIZER_LINUX_H
 #define SANITIZER_LINUX_H
-
 #include "sanitizer_platform.h"
 #if SANITIZER_FREEBSD || SANITIZER_LINUX
 #include "sanitizer_common.h"
@@ -20,7 +19,7 @@
 #include "sanitizer_platform_limits_posix.h"
 
 struct link_map;  // Opaque type returned by dlopen().
-struct sigaltstack;
+//struct sigaltstack;
 
 namespace __sanitizer {
 // Dirent structure for getdents(). Note that this structure is different from
